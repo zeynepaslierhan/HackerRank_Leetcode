@@ -50,8 +50,7 @@ char* timeConversion(char* s) {
             s[1]=(int)s[1]+2;
             s[0]=(int)s[0]+1;
         }
-        s[8]=NULL;
-        s[9]=NULL;
+        *(s + 8) = '\0';
     }
     return s;
 }   
