@@ -39,21 +39,31 @@ char* readline();
  */
 char* timeConversion(char* s) {
     
-    if(s[8]=='P'){
+char* timeConversion(char* s) {
+    
+  if(s[8]=='P'){
         if(s[1]=='9'){
             s[1]='1';
-            s[0]=(int)s[0]+2;
+            s[0]='2';
         }else if(s[1]=='8'){
             s[1]='0';
-            s[0]=(int)s[0]+2;
-        }else{
+            s[0]='2';
+        }else if(s[0]=='1'&&s[1]=='2'){
+            s[0]='1';
+            s[1]='2';
+        }
+        else{
             s[1]=(int)s[1]+2;
             s[0]=(int)s[0]+1;
-        }
-        *(s + 8) = '\0';
+        }    
+    }else if(s[8]=='A'&&s[0]=='1'&&s[1]=='2'){
+        s[0]='0';
+        s[1]='0';
     }
+    
+    s[8]='\0';
     return s;
-}   
+}    
     
     
 
