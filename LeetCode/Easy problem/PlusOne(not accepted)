@@ -1,0 +1,41 @@
+/*
+
+Why is this code not working with large number??  
+72 / 111 test cases passed
+
+
+Input
+[6,1,4,5,3,9,0,1,9,5,1,8,6,7,0,5,5,4,3]
+Output
+[6,1,4,5,3,9,0,1,9,5,1,8,6,7,0,5,4,0,9]
+Expected
+[6,1,4,5,3,9,0,1,9,5,1,8,6,7,0,5,5,4,4]
+
+*/
+
+int* plusOne(int* digits, int digitsSize, int* returnSize){
+   
+    unsigned long long int sum=0;
+    int digit=0,digit2=digitsSize;
+    
+    for( int i = 0;i<digitsSize; i++ ){
+        sum=sum+digits[i]*pow(10,digit2-1);
+        digit2--;
+    }
+    sum++;
+    unsigned long long int num=sum;
+    while(num!=0){
+            digit++;
+            num=num/10;
+    }
+    int *result=(int*)malloc(sizeof(int)*digit);
+    
+    for(int i=digit-1;i>=0;i--){
+        result[i]=sum%10;
+        sum=sum/10;
+    }
+    
+    *returnSize=digit;
+    return result;
+    
+}
