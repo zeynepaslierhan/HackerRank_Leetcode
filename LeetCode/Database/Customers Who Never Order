@@ -1,0 +1,3 @@
+
+SELECT A.Name as Customers from Customers A
+WHERE NOT EXISTS (SELECT B.customerId FROM orders B WHERE A.Id = B.CustomerId)
