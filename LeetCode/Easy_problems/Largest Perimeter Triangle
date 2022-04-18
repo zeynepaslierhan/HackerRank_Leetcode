@@ -1,0 +1,18 @@
+public class Solution {
+    public int LargestPerimeter(int[] nums){
+        var len=nums.Length;
+        Array.Sort(nums);
+        
+        for (int i = 0; i < len; i++){
+            var lastOne = len-1-i;
+            var nextToLast = lastOne-1;
+            var smallest = lastOne-2; 
+            if(smallest<0)
+                break;
+            if(nums[nextToLast] + nums[smallest] > nums[lastOne])
+                return nums[nextToLast] + nums[smallest] + nums[lastOne];
+        }
+        
+        return 0;
+    }
+}
