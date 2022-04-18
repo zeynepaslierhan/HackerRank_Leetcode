@@ -1,0 +1,3 @@
+DELETE  dubP
+FROM Person dubP, Person P
+WHERE dubp.email=P.email AND dubp.id>P.id
