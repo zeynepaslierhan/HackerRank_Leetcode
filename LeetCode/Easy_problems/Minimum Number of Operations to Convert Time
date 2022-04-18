@@ -1,0 +1,18 @@
+public class Solution {
+    public int ConvertTime(string current, string correct) {
+        DateTime start = DateTime.ParseExact(current, "HH:mm", null);
+        DateTime end = DateTime.ParseExact(correct, "HH:mm", null);
+        int diff = (int)((end - start).TotalMinutes);
+        int count = 0;
+        while (diff > 0)
+        {
+            count++;
+            if (diff >= 60) diff -= 60;
+            else if (diff >= 15) diff -= 15;
+            else if (diff >= 5) diff -= 5;
+            else if (diff >= 1) diff -= 1;
+        }
+    
+        return count;
+    }
+}
