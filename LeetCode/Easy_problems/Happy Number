@@ -1,0 +1,21 @@
+public class Solution {
+    
+    private HashSet<int> hs = new HashSet<int>();
+   
+    public bool IsHappy(int n) {
+        double result = 0;
+        
+        while(n != 0)
+        {
+            result+=Math.Pow(n%10,2);
+            n/=10;
+        }
+        var finalNum = (int) result;
+        if(finalNum == 1) return true;
+        
+        if(!hs.Add(finalNum)) 
+            return false;
+        
+        return IsHappy(finalNum);
+    }
+}
