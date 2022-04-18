@@ -1,0 +1,13 @@
+public class Solution {
+    public int CountOdds(int low, int high) {
+        int odd=0;
+        if(low%2==0){
+            low++;
+        }
+        while(low<=high){
+            odd++;
+            low+=2;
+        }
+        return odd;
+    }
+}
