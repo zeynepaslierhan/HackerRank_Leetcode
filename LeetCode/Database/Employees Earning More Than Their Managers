@@ -1,0 +1,6 @@
+
+SELECT Name as Employee 
+FROM Employee E
+WHERE Salary > (
+    Select Salary FROM Employee M WHERE M.Id = E.ManagerId
+)
