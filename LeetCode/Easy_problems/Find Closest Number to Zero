@@ -1,0 +1,15 @@
+public class Solution {
+    public int FindClosestNumber(int[] nums) {
+        int closest=Int32.MaxValue;
+        Array.Sort(nums);
+        for(int i=0;i<nums.Length;i++){
+            int absoluteVal = (nums[i]<0) ? nums[i]*-1: nums[i];
+            if(absoluteVal<=closest&&closest>0)
+                closest=nums[i];
+            else if(absoluteVal<=closest*-1&&closest<=0){
+                closest=nums[i];
+            }
+        }
+        return closest;
+    }
+}
