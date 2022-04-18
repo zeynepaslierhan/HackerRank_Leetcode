@@ -1,0 +1,59 @@
+public class Solution {
+    public bool AreAlmostEqual(string s1, string s2){
+        int diff = 0;
+        
+        if (s1 == s2)
+        {
+            return true;
+        }
+    
+        
+        if (s1.Length != s2.Length)
+        {
+            return false;
+        }
+        
+        Dictionary<char, int> d1 = new Dictionary<char, int>();
+        Dictionary<char, int> d2 = new Dictionary<char, int>();
+        for (int i =0;i<s1.Length;i++)
+        {
+            if (!d1.ContainsKey(s1[i]))
+            {
+                d1.Add(s1[i], 1);
+            }
+            else
+            {
+                d1[s1[i]] +=1;
+            }
+            
+            if (!d2.ContainsKey(s2[i]))
+            {
+                d2.Add(s2[i], 1);
+            }
+            else
+            {
+                d2[s2[i]] +=1;
+            }
+        }
+        
+        foreach(var kvp in d1)
+        {
+            if (!d2.ContainsKey(kvp.Key))
+            {
+                return false;
+            }
+        }
+        for (int i = 0;i<s1.Length;i++)
+        {
+            if (s1[i] != s2[i])
+            {
+                diff+=1;
+            }
+        }
+        
+        
+         return diff == 2;
+    
+    
+    }
+}
