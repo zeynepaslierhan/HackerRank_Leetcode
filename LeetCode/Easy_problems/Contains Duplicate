@@ -1,0 +1,13 @@
+public class Solution {
+    public bool ContainsDuplicate(int[] nums) {
+        Hashtable hash = new Hashtable();
+        
+        foreach (var number in nums)
+            if (hash.Contains(number))
+                return true;
+            else
+                hash.Add(number, null);
+        
+        return false;
+    }
+}
