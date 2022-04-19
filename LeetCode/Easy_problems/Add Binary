@@ -1,0 +1,25 @@
+public class Solution {
+    public string AddBinary(string a, string b) {
+        int carry = 0;
+        int i = a.Length - 1;
+        int j = b.Length - 1;
+        var bits = new Stack<string>();
+        
+        while (i >= 0 || j >= 0 ||carry>0) {
+            int aBit = i < 0 || a[i--] == '0' ? 0 : 1;
+            int bBit = j < 0 || b[j--] == '0' ? 0 : 1;
+            int sum = aBit + bBit + carry;            
+            carry = sum > 1 ? 1 : 0;
+            sum = sum % 2;
+            bits.Push(sum.ToString());
+        }
+        
+        string result = string.Empty;
+        foreach (var bit in bits) {
+            result += bit;
+        }
+        
+        return result;
+        
+    }
+}
